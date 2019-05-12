@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "854810024221",
+    "firebase_url": "https://mlkitapp-cecf9.firebaseio.com",
+    "project_id": "mlkitapp-cecf9",
+    "storage_bucket": "mlkitapp-cecf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854810024221:android:6e88019cc76c6fe2",
+        "android_client_info": {
+          "package_name": "com.example.mlkitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854810024221-4t1uo9hsqm6bbsir9tqadmcfvtu4jklu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcLNR7PIYWqZweQIBNlWwmIbMLlbv52eU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854810024221-4t1uo9hsqm6bbsir9tqadmcfvtu4jklu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
