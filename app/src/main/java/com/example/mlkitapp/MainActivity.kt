@@ -6,8 +6,10 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.Menu
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -31,11 +33,24 @@ class MainActivity : AppCompatActivity() {
                     val bitmap:Bitmap? = getImageFromData(data)
                     bitmap?.apply {
                         contentIV.setImageBitmap(bitmap)
+                        processImageTagging(bitmap)
                     }
                 }
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun processImageTagging(bitmap: Bitmap) {
+        val visionImg = FirebaseVisionImage.fromBitmap(bitmap)
+        val labeler = FirebaseVision.getInstance().onDeviceImageLabeler
+        labeler.processImage(visionImg)
+            .addOnSuccessListener { tags ->
+                tagsTV.text = tags.joinToString(", ") { it.text + ": " + it.confidence }
+            }
+            .addOnFailureListener { ex ->
+                Log.wtf("LAB", ex)
+            }
     }
 
     private fun getImageFromData(data: Intent?) : Bitmap? {
